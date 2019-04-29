@@ -76,8 +76,9 @@ Route::group(['middleware' => ['jwt.auth', 'permission']], function () {
 
     //goods
     Route::post('goods/singlefile', 'GoodsController@singlefile');
-    Route::post('goods/store', 'GoodsController@store'); //创建用户保存
+    Route::post('goods/store', 'GoodsController@store');
     Route::get('goods/page', 'GoodsController@index');
+    Route::post('goods/deleteimg', 'GoodsController@deleteimg');
 
     //logistics
     Route::post('logistics/store', 'LogisticsController@store'); //创建用户保存

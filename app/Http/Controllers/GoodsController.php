@@ -225,4 +225,22 @@ class GoodsController extends Controller
             return UtilService::format_data(self::AJAX_FAIL, '没有权限', '');
         }
     }
+
+    public function deleteimg(Request $request){
+        $goodsId = $request->input('goodsId');
+        $imageName = $request->input('imageName');
+        $imageType = $request->input('imageType');
+        if($goodsId) {
+            $good = Goods::find($goodsId);
+            $res = $good->delete();
+            if ($good && $res) {
+                return UtilService::format_data(self::AJAX_SUCCESS, '操作成功', $res);
+            } else {
+                return UtilService::format_data(self::AJAX_FAIL, '操作失败', '');
+            }
+        }
+        else{
+            return UtilService::format_data(self::AJAX_SUCCESS, '操作成功', null);
+        }
+    }
 }
