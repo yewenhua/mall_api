@@ -169,7 +169,9 @@ class GoodsController extends Controller
 
                     $first_properties_id = $pro ? $pro->id : '';
                     $second_properties_id = '';
+                    $flag = false;
                     if($item['second_properties_title'] && $item['second_properties']){
+                        $flag = true;
                         $proObj = new Properties();
                         $pro = $proObj->findByTitleAndName($item['second_properties_title'], $item['second_properties']);
                         $second_properties_id = $pro ? $pro->id : '';
@@ -182,11 +184,14 @@ class GoodsController extends Controller
                     }
                     else{
                         //还没有，新增
-                        $proObj->num = $item['num'];
-                        $proObj->first_properties_id = $first_properties_id;
-                        $proObj->second_properties_id = $second_properties_id;
-                        $proObj->goods_id = $goodObj->id;
-                        $proObj->save();
+                        $skuObj->num = $item['num'];
+                        $skuObj->first_properties_id = $first_properties_id;
+                        if($flag){
+                            $skuObj->second_properties_id = $second_properties_id;
+                        }
+
+                        $skuObj->goods_id = $goodObj->id;
+                        $skuObj->save();
                     }
                 }
 
@@ -231,8 +236,10 @@ class GoodsController extends Controller
         $imageName = $request->input('imageName');
         $imageType = $request->input('imageType');
         if($goodsId) {
+            return UtilService::format_data(self::AJAX_SUCCESS, '操作成功', null);
+
             $good = Goods::find($goodsId);
-            $res = $good->delete();
+            //$res = $good->delete();
             if ($good && $res) {
                 return UtilService::format_data(self::AJAX_SUCCESS, '操作成功', $res);
             } else {

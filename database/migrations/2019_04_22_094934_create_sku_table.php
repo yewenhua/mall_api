@@ -17,7 +17,7 @@ class CreateSkuTable extends Migration
             $table->increments('id');
             $table->integer('goods_id');
             $table->integer('first_properties_id');
-            $table->integer('second_properties_id');
+            $table->integer('second_properties_id')->default(null);
             $table->integer('num')->comment('库存');
             $table->timestamps();
             $table->softDeletes(); //添加软删除
