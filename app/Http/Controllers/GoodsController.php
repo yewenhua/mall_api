@@ -102,6 +102,7 @@ class GoodsController extends Controller
             $category = $request->input('category');
             $send_method = $request->input('send_method');
             $sale_price = $request->input('sale_price');
+            $remain_num = $request->input('remain_num');
             $isSku = $request->input('isSku');
             $images = $request->input('images');
             $detailImages = $request->input('detailImages');
@@ -116,6 +117,14 @@ class GoodsController extends Controller
 
             DB::beginTransaction();
             try {
+                if($isSku){
+                    $num = 0;
+                    foreach ($sku as $item){
+                        $num = $num + $item['num'];
+                    }
+                    $remain_num = $num;
+                }
+
                 if ($id) {
                     $id = UtilService::aesdecrypt($id);
                     $goodObj = Goods::find($id);
@@ -124,16 +133,16 @@ class GoodsController extends Controller
                     $goodObj->category = $category;
                     $goodObj->sale_price = $sale_price;
                     $goodObj->send_method = $send_method;
-
+                    $goodObj->remain_num = $remain_num;
                     $goodObj->save();
                 }
                 else {
                     $params = request(['name', 'is_release', 'send_method']);
                     $params['category'] = $category;
-                    $params['sale_price'] = '90.9';
+                    $params['sale_price'] = $sale_price;
                     $params['market_price'] = '80.8';
                     $params['discount'] = '9.5';
-                    $params['remain_num'] = 100;
+                    $params['remain_num'] = $remain_num;
                     $params['sale_num'] = 50;
                     $params['is_release'] = $is_release;
                     $params['is_recommend'] = 1;
