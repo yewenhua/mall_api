@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主机： 127.0.0.1
--- 生成日期： 2019-04-27 08:31:23
+-- 生成日期： 2019-04-30 10:55:36
 -- 服务器版本： 10.1.36-MariaDB
 -- PHP 版本： 5.6.38
 
@@ -142,7 +142,16 @@ CREATE TABLE `goods` (
 --
 
 INSERT INTO `goods` (`id`, `category`, `name`, `sale_price`, `market_price`, `discount`, `remain_num`, `sale_num`, `is_release`, `is_recommend`, `is_time_buy`, `time_buy_time`, `weight`, `limit_buy_num`, `send_method`, `sort_id`, `merchant_id`, `is_pintuan`, `pintuan_num`, `pintuan_time`, `is_sku`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(4, '1/75/94', '茅台国酒', '90.90', '80.80', '9.50', 100, 50, 1, 1, 0, NULL, NULL, 10, 2, 10, 2, 0, 2, NULL, 1, '2019-04-23 06:30:32', '2019-04-25 03:03:02', NULL);
+(4, '1/75/94', '国酒茅台', '90.90', '80.80', '9.50', 450, 50, 1, 1, 0, NULL, NULL, 10, 2, 10, 2, 0, 2, NULL, 1, '2019-04-23 06:30:32', '2019-04-30 08:49:12', NULL),
+(9, '1/75/95', 'X8', '90.90', '80.80', '9.50', 100, 50, 1, 1, 0, NULL, NULL, 10, 1, 10, 2, 0, 2, NULL, 1, '2019-04-29 05:37:49', '2019-04-29 05:38:52', NULL),
+(10, '1/75/96', 'V77', '90.90', '80.80', '9.50', 100, 50, 1, 1, 0, NULL, NULL, 10, 2, 10, 2, 0, 2, NULL, 1, '2019-04-29 05:39:51', '2019-04-29 05:39:51', NULL),
+(11, '1/75/97', 'V77', '90.90', '80.80', '9.50', 100, 50, 1, 1, 0, NULL, NULL, 10, 1, 10, 2, 0, 2, NULL, 1, '2019-04-29 05:40:57', '2019-04-29 05:40:57', NULL),
+(12, '1/75/98', 'k8', '90.90', '80.80', '9.50', 100, 50, 1, 1, 0, NULL, NULL, 10, 2, 10, 2, 0, 2, NULL, 1, '2019-04-29 05:41:38', '2019-04-29 05:41:38', NULL),
+(13, '1/86/99', 'B6', '90.90', '80.80', '9.50', 100, 50, 1, 1, 0, NULL, NULL, 10, 2, 10, 2, 0, 2, NULL, 1, '2019-04-29 05:42:38', '2019-04-29 05:42:38', NULL),
+(14, '1/86/100', 'H6', '90.90', '80.80', '9.50', 100, 50, 1, 1, 0, NULL, NULL, 10, 1, 10, 2, 0, 2, NULL, 1, '2019-04-29 05:43:21', '2019-04-29 05:43:21', NULL),
+(15, '1/86/101', 'G5', '90.90', '80.80', '9.50', 100, 50, 1, 1, 0, NULL, NULL, 10, 1, 10, 2, 0, 2, NULL, 1, '2019-04-29 05:44:01', '2019-04-29 05:44:01', NULL),
+(16, '1/86/102', 'K99', '90.90', '80.80', '9.50', 100, 50, 1, 1, 0, NULL, NULL, 10, 2, 10, 2, 0, 2, NULL, 1, '2019-04-29 05:44:42', '2019-04-29 05:44:42', NULL),
+(17, '1/86/103', 'J8', '90.90', '80.80', '9.50', 100, 50, 1, 1, 0, NULL, NULL, 10, 1, 10, 2, 0, 2, NULL, 1, '2019-04-29 05:45:51', '2019-04-29 05:45:51', NULL);
 
 -- --------------------------------------------------------
 
@@ -165,11 +174,55 @@ CREATE TABLE `goods_images` (
 --
 
 INSERT INTO `goods_images` (`id`, `goods_id`, `type`, `url`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(4, 4, 'main', '/uploads/goods/20190423/nf0cQDPWlG4P0OFYigpXnNKMM1nE2uhiKeLt9iUt.jpeg', '2019-04-24 00:53:50', '2019-04-24 00:53:50', NULL),
-(5, 4, 'detail', '/uploads/goods/20190423/6XkZgUoX9fG88omerLQvblUbBvt7j7mfYk4sZxS6.jpeg', '2019-04-24 00:53:50', '2019-04-24 00:53:50', NULL),
-(6, 4, 'detail', '/uploads/goods/20190423/EOgbKFbTN0nst4sEGqJAKfT8tYeo1vCoXCI7Up6x.jpeg', '2019-04-24 00:53:50', '2019-04-24 00:53:50', NULL),
-(7, 4, 'detail', '/uploads/goods/20190424/w8s9fZM3RIP2ZqhPieuwfX7Olo9X4AZ58dsMLj0i.jpeg', '2019-04-24 00:53:50', '2019-04-24 00:53:50', NULL),
-(8, 4, 'detail', '/uploads/goods/20190424/rqUoTSx5SCzCruEU9pzBpa2jpT1ql4QzSTnN4ygL.png', '2019-04-24 01:33:22', '2019-04-24 01:33:22', NULL);
+(9, 4, 'main', '/uploads/goods/20190429/meFpZSvcZ30KI1wDZzCo1lNBxG4mGtq5b1BGOgrg.jpeg', '2019-04-29 05:03:30', '2019-04-29 05:03:30', NULL),
+(10, 4, 'main', '/uploads/goods/20190429/zS22EOXOA3w8zrwC5t95Hlbo9sH3CRgs58EPnuMg.jpeg', '2019-04-29 05:03:30', '2019-04-29 05:03:30', NULL),
+(11, 4, 'detail', '/uploads/goods/20190429/vn4RU4lvcPFkxgoD2nrugPmMhaIrF1vKZ23WTuLQ.jpeg', '2019-04-29 05:03:30', '2019-04-29 05:03:30', NULL),
+(12, 4, 'detail', '/uploads/goods/20190429/3NJdiCGYR0oBpy24GO70v8kFLj9I2yfxZHypsTpr.jpeg', '2019-04-29 05:03:30', '2019-04-29 05:03:30', NULL),
+(13, 4, 'detail', '/uploads/goods/20190429/j0NgadGBPMljvLHu7CgvLz5cG0TR4t5tL4hBCJXV.jpeg', '2019-04-29 05:03:30', '2019-04-29 05:03:30', NULL),
+(14, 4, 'detail', '/uploads/goods/20190429/MReTNYeR9KNbPlZOzI0Oah9egOJG0lv94MivV6sv.jpeg', '2019-04-29 05:03:30', '2019-04-29 05:03:30', NULL),
+(15, 4, 'detail', '/uploads/goods/20190429/MjSNqbPowiaiR5l9jTdcB2RmK4iFGL15V4VOx9BM.jpeg', '2019-04-29 05:03:30', '2019-04-29 05:03:30', NULL),
+(16, 4, 'detail', '/uploads/goods/20190429/D60p1D58y5rRNu8Y0AlsH2b5GfgYQmG6SGdeT641.jpeg', '2019-04-29 05:03:30', '2019-04-29 05:03:30', NULL),
+(17, 4, 'detail', '/uploads/goods/20190429/gCYSVZLjqIIHE1S9E35XsyuFBUECg0xaKz09fzwe.jpeg', '2019-04-29 05:03:30', '2019-04-29 05:03:30', NULL),
+(18, 4, 'detail', '/uploads/goods/20190429/wPwlUWL4vTEJqxkeulNj9WcaJYzoacv1fs6YfW00.jpeg', '2019-04-29 05:03:30', '2019-04-29 05:03:30', NULL),
+(19, 4, 'detail', '/uploads/goods/20190429/XAF7wy1GYQ7LOvWtIXL4tLH6rWh1GiAlIesDY2bg.jpeg', '2019-04-29 05:03:30', '2019-04-29 05:03:30', NULL),
+(20, 4, 'detail', '/uploads/goods/20190429/wBNC6Qvy8Rfvd53jUcn4mJSBJmqanrwpXmSyycXg.jpeg', '2019-04-29 05:03:30', '2019-04-29 05:03:30', NULL),
+(21, 4, 'detail', '/uploads/goods/20190429/iD7socW0iAXI2eey1ZkvOgMqVs0IVQaMzFMEaUlk.jpeg', '2019-04-29 05:03:30', '2019-04-29 05:03:30', NULL),
+(22, 4, 'detail', '/uploads/goods/20190429/jIQrSftwVAe02QxNMgwKq80Xad9hwd4spkNqjw4c.jpeg', '2019-04-29 05:03:30', '2019-04-29 05:03:30', NULL),
+(23, 4, 'detail', '/uploads/goods/20190429/7Tx5hpEqs6wUrgcSzocVoRgkcgbwszkhskoZ7HVR.jpeg', '2019-04-29 05:03:30', '2019-04-29 05:03:30', NULL),
+(24, 9, 'main', '/uploads/goods/20190429/A2a1fUk7hGW3Oza9Mgz79Ym7fOOpvUNkGNkjnHeZ.jpeg', '2019-04-29 05:37:49', '2019-04-29 05:37:49', NULL),
+(25, 9, 'detail', '/uploads/goods/20190429/LEQmrw2I4urv162HlTZZovCzhieHgM3NZEVVTFZU.jpeg', '2019-04-29 05:37:49', '2019-04-29 05:37:49', NULL),
+(26, 9, 'detail', '/uploads/goods/20190429/jxz38GAw8lbBce4LdOdQpJzfQH1DN992d5tzLt90.jpeg', '2019-04-29 05:37:49', '2019-04-29 05:37:49', NULL),
+(27, 10, 'main', '/uploads/goods/20190429/z2FMnHNvmnmHEYsFmnC1VBHz9KTW9wW3CCFKgIjt.jpeg', '2019-04-29 05:39:51', '2019-04-29 05:39:51', NULL),
+(28, 10, 'detail', '/uploads/goods/20190429/z8Goi9S7MfFfVzTnrBdwWiIJtZigObpqV1W0aLqa.jpeg', '2019-04-29 05:39:51', '2019-04-29 05:39:51', NULL),
+(29, 10, 'detail', '/uploads/goods/20190429/CE9AHzecziUbbDbXjdueSuNlKwjOm836mBtHabEB.jpeg', '2019-04-29 05:39:51', '2019-04-29 05:39:51', NULL),
+(30, 11, 'main', '/uploads/goods/20190429/uW3xkUGYl0rX3t6YMo44yhFHbLWOfeaqhMtd42ve.jpeg', '2019-04-29 05:40:57', '2019-04-29 05:40:57', NULL),
+(31, 11, 'detail', '/uploads/goods/20190429/tOhKcxoCsw99C8HOXejW8dehbFVmY9qqc8wQN4kb.jpeg', '2019-04-29 05:40:57', '2019-04-29 05:40:57', NULL),
+(32, 11, 'detail', '/uploads/goods/20190429/8q3vKiwEGZNnMEClzbMNGiXn4ymgOwFQRogfHX8x.jpeg', '2019-04-29 05:40:57', '2019-04-29 05:40:57', NULL),
+(33, 12, 'main', '/uploads/goods/20190429/UjDlttekrSH7MCV7jA6cKIWNkjBydyl0WKtBJfVi.jpeg', '2019-04-29 05:41:38', '2019-04-29 05:41:38', NULL),
+(34, 12, 'detail', '/uploads/goods/20190429/EBNiOC0b2ZyHM06b5AcjndkpuPxDT0dHd72KZcZw.jpeg', '2019-04-29 05:41:38', '2019-04-29 05:41:38', NULL),
+(35, 12, 'detail', '/uploads/goods/20190429/nNTvpY9dNMIuBUFKTpEf4Udi3tRhYs2VcdQ3GpsC.jpeg', '2019-04-29 05:41:38', '2019-04-29 05:41:38', NULL),
+(36, 13, 'main', '/uploads/goods/20190429/MLXDSwzCRDZDZUIzKTx5qaNWEWT6NrfW4EMIIHtZ.jpeg', '2019-04-29 05:42:38', '2019-04-29 05:42:38', NULL),
+(37, 13, 'detail', '/uploads/goods/20190429/YR9cuWMd3YyFY5AN1YtUOCqrP7Q5P7yymK0gmacY.jpeg', '2019-04-29 05:42:38', '2019-04-29 05:42:38', NULL),
+(38, 13, 'detail', '/uploads/goods/20190429/0aurUvh6iWhJGMquSt6LRCwgIeupc4md7pOeGJFT.jpeg', '2019-04-29 05:42:38', '2019-04-29 05:42:38', NULL),
+(39, 14, 'main', '/uploads/goods/20190429/rfVHjTrJF1WQLhpnRIJTas320JiGUG19cu6svAYC.jpeg', '2019-04-29 05:43:21', '2019-04-29 05:43:21', NULL),
+(40, 14, 'detail', '/uploads/goods/20190429/3UJXOqNN5DvfvrH9HgeIA9SQejDWHDaHv5pEUqyr.jpeg', '2019-04-29 05:43:21', '2019-04-29 05:43:21', NULL),
+(41, 14, 'detail', '/uploads/goods/20190429/hjjnKQr8xQ2GleVdSyAl0GXQAHAAgzPeIuMuadPS.jpeg', '2019-04-29 05:43:21', '2019-04-29 05:43:21', NULL),
+(42, 14, 'detail', '/uploads/goods/20190429/kojANQ1Fc3DhnJAKRv4GVz8Kfm9BJOIYevotUriG.jpeg', '2019-04-29 05:43:21', '2019-04-29 05:43:21', NULL),
+(43, 15, 'main', '/uploads/goods/20190429/z8VBCL43rHdGSEis0F97iKIy0TT0QW4likuUmKgD.jpeg', '2019-04-29 05:44:01', '2019-04-29 05:44:01', NULL),
+(44, 15, 'detail', '/uploads/goods/20190429/TfdKNMBfE9Zl5Ju4Ks2oIAuGCUwzxMHBUIOXtuOc.jpeg', '2019-04-29 05:44:01', '2019-04-29 05:44:01', NULL),
+(45, 15, 'detail', '/uploads/goods/20190429/IOp7nE70oyFsfOen4lS1INM123glXezw1nNCMjr2.jpeg', '2019-04-29 05:44:01', '2019-04-29 05:44:01', NULL),
+(46, 16, 'main', '/uploads/goods/20190429/QxbqfTyazY9NzMeOuePRLTJP1lfZJqYyo0FxVp6J.jpeg', '2019-04-29 05:44:42', '2019-04-29 05:44:42', NULL),
+(47, 16, 'detail', '/uploads/goods/20190429/OSoiqkpjV7UbAnZyAWCIHvhLllgoECMyKBKsC5I9.jpeg', '2019-04-29 05:44:42', '2019-04-29 05:44:42', NULL),
+(48, 16, 'detail', '/uploads/goods/20190429/MHDn0EWIKl4ZV8Zzdgi48496riNkOYtciAqYGFok.jpeg', '2019-04-29 05:44:42', '2019-04-29 05:44:42', NULL),
+(49, 17, 'main', '/uploads/goods/20190429/GiQpHdMHsURGecgHO1ekiyNQ2DiM8MGuBiJP7voA.jpeg', '2019-04-29 05:45:51', '2019-04-29 05:45:51', NULL),
+(50, 17, 'detail', '/uploads/goods/20190429/l1y6QGHuq4sEnOsDJqiVmBhZ9buHvYMIFvY0RH5k.jpeg', '2019-04-29 05:45:51', '2019-04-29 05:45:51', NULL),
+(51, 17, 'detail', '/uploads/goods/20190429/QMVGY08oF8BUJnVSr8foHWgb26pBV6wqhjuaV5kL.jpeg', '2019-04-29 05:45:51', '2019-04-29 05:45:51', NULL),
+(52, 17, 'detail', '/uploads/goods/20190429/fB5STN7k5pWzylK5NyFXZBPrrdfGHVxhcumvsGJd.jpeg', '2019-04-29 05:45:51', '2019-04-29 05:45:51', NULL),
+(53, 17, 'detail', '/uploads/goods/20190429/QWMWDD1CV7CyaxIzrdYuUUgKSF8OWld30SAPJBgd.jpeg', '2019-04-29 05:45:51', '2019-04-29 05:45:51', NULL),
+(54, 17, 'detail', '/uploads/goods/20190429/sCfmAVUo4x1jTxFRd023ML3MGPmrsShGHfOZEKEM.jpeg', '2019-04-29 05:45:51', '2019-04-29 05:45:51', NULL),
+(55, 17, 'detail', '/uploads/goods/20190429/7IGNevTY49ZEgLkQwZ2ClSfzXmJS1shNpYLwCBUs.jpeg', '2019-04-29 05:45:51', '2019-04-29 05:45:51', NULL),
+(56, 17, 'detail', '/uploads/goods/20190429/a3Y0SpmNMFKq1fugp9oDf3pUPL0IDxywuW7geriP.jpeg', '2019-04-29 05:45:51', '2019-04-29 05:45:51', NULL),
+(57, 17, 'detail', '/uploads/goods/20190429/4SIcM15ihfnlZAXwFcaNuV7OauRawCgMbAuFtGek.jpeg', '2019-04-29 05:45:51', '2019-04-29 05:45:51', NULL);
 
 -- --------------------------------------------------------
 
@@ -5394,7 +5447,10 @@ INSERT INTO `properties` (`id`, `title`, `name`, `created_at`, `updated_at`, `de
 (3, '尺寸', '35', '2019-04-23 02:05:47', '2019-04-23 02:05:47', NULL),
 (4, '尺寸', '36', '2019-04-23 02:05:47', '2019-04-23 02:05:47', NULL),
 (5, '尺寸', '37', '2019-04-23 02:05:47', '2019-04-23 02:05:47', NULL),
-(6, '尺寸', '38', '2019-04-24 00:53:50', '2019-04-24 00:53:50', NULL);
+(6, '尺寸', '38', '2019-04-24 00:53:50', '2019-04-24 00:53:50', NULL),
+(15, '颜色', '黄古铜', '2019-04-29 05:37:49', '2019-04-29 05:37:49', NULL),
+(16, '颜色', '青古铜', '2019-04-29 05:37:49', '2019-04-29 05:37:49', NULL),
+(17, '颜色', '黑色', '2019-04-29 05:39:51', '2019-04-29 05:39:51', NULL);
 
 -- --------------------------------------------------------
 
@@ -5657,7 +5713,7 @@ CREATE TABLE `sku` (
   `id` int(11) NOT NULL,
   `goods_id` int(11) NOT NULL,
   `first_properties_id` int(11) NOT NULL,
-  `second_properties_id` int(11) NOT NULL,
+  `second_properties_id` int(11) DEFAULT NULL,
   `num` int(11) NOT NULL COMMENT '库存',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
@@ -5676,7 +5732,19 @@ INSERT INTO `sku` (`id`, `goods_id`, `first_properties_id`, `second_properties_i
 (29, 4, 2, 3, 40, '2019-04-24 00:53:50', '2019-04-24 00:53:50', NULL),
 (30, 4, 2, 4, 50, '2019-04-24 00:53:50', '2019-04-24 00:53:50', NULL),
 (31, 4, 2, 5, 60, '2019-04-24 00:53:50', '2019-04-24 00:53:50', NULL),
-(32, 4, 2, 6, 70, '2019-04-24 00:53:50', '2019-04-24 00:53:50', NULL);
+(32, 4, 2, 6, 70, '2019-04-24 00:53:50', '2019-04-24 00:53:50', NULL),
+(33, 9, 15, NULL, 10, '2019-04-29 05:37:49', '2019-04-29 05:37:49', NULL),
+(34, 9, 16, NULL, 20, '2019-04-29 05:37:49', '2019-04-29 05:37:49', NULL),
+(35, 9, 15, NULL, 20, '2019-04-29 05:38:53', '2019-04-29 05:38:53', NULL),
+(36, 9, 16, NULL, 20, '2019-04-29 05:38:53', '2019-04-29 05:38:53', NULL),
+(37, 10, 17, NULL, 10, '2019-04-29 05:39:51', '2019-04-29 05:39:51', NULL),
+(38, 11, 15, NULL, 56, '2019-04-29 05:40:57', '2019-04-29 05:40:57', NULL),
+(39, 12, 17, NULL, 40, '2019-04-29 05:41:38', '2019-04-29 05:41:38', NULL),
+(40, 13, 15, NULL, 0, '2019-04-29 05:42:38', '2019-04-29 05:42:38', NULL),
+(41, 14, 15, NULL, 30, '2019-04-29 05:43:21', '2019-04-29 05:43:21', NULL),
+(42, 15, 15, NULL, 30, '2019-04-29 05:44:01', '2019-04-29 05:44:01', NULL),
+(43, 16, 17, NULL, 89, '2019-04-29 05:44:42', '2019-04-29 05:44:42', NULL),
+(44, 17, 15, NULL, 0, '2019-04-29 05:45:51', '2019-04-29 05:45:51', NULL);
 
 -- --------------------------------------------------------
 
@@ -5708,8 +5776,8 @@ INSERT INTO `tree` (`id`, `path`, `label`, `level`, `description`, `is_root`, `s
 (1, '1', '全部', 1, '感悟人生真谛,让设计与生活互动', 1, 1, 1, '/uploads/20180725/jR3FzTC6cObhgQ8LBqj5qsLgLySwnLM9ILT5lnFx.jpeg', NULL, '2018-07-19 07:47:20', NULL, NULL),
 (66, '1/66', '家居家装', 2, NULL, 0, 3, 1, '/uploads/20180725/jR3FzTC6cObhgQ8LBqj5qsLgLySwnLM9ILT5lnFx.jpeg', NULL, '2017-03-10 02:15:59', '2019-04-23 11:31:03', NULL),
 (69, '1/69', '汽车精密检具', 2, '感悟人生真谛,让设计与生活互动', 0, 4, 1, '/uploads/20180725/XNJx7EvxgSmFoaG4Pj3EnPd2k699qj0rnL1CUitr.jpeg', NULL, '2017-03-10 02:17:16', '2019-04-22 13:19:14', '2019-04-22 13:19:14'),
-(75, '1/75', '运动专区', 2, NULL, 0, 1, 1, '/uploads/20180725/jR3FzTC6cObhgQ8LBqj5qsLgLySwnLM9ILT5lnFx.jpeg', NULL, '2017-03-10 05:50:08', '2019-04-23 11:30:44', NULL),
-(86, '1/86', '母婴用品', 2, NULL, 0, 2, 1, '/uploads/20180725/jR3FzTC6cObhgQ8LBqj5qsLgLySwnLM9ILT5lnFx.jpeg', NULL, '2017-04-21 02:36:20', '2019-04-23 11:30:54', NULL),
+(75, '1/75', '运动专区', 2, NULL, 0, 1, 1, '/uploads/20190429/ti6YLAgmW6VBZ8gCFKTsARnrRSGpg62vnMYkPRRt.jpeg', NULL, '2017-03-10 05:50:08', '2019-04-29 16:28:44', NULL),
+(86, '1/86', '母婴用品', 2, NULL, 0, 2, 1, '/uploads/20190429/OHA4JtOQBoqXv782tATUtue5NqnV8yuJo7J5OdnP.jpeg', NULL, '2017-04-21 02:36:20', '2019-04-29 16:28:57', NULL),
 (92, '1/92', '大型综合机加工', 2, '感悟人生真谛,让设计与生活互动', 0, 5, 1, '/uploads/20180725/XNJx7EvxgSmFoaG4Pj3EnPd2k699qj0rnL1CUitr.jpeg', '<p>world</p>', '2018-07-19 06:52:23', '2019-04-22 13:19:09', '2019-04-22 13:19:09'),
 (94, '1/75/94', '耐克', 3, NULL, 0, 1, 1, '/uploads/20180725/jR3FzTC6cObhgQ8LBqj5qsLgLySwnLM9ILT5lnFx.jpeg', NULL, '2018-07-19 07:54:23', '2019-04-23 11:31:10', NULL),
 (95, '1/75/95', '阿迪达斯', 3, NULL, 0, 2, 1, '/uploads/20180725/efXaqXmcWMTUqU3hyXc3OiPZctjnj3ZfHBpbmQel.jpeg', NULL, '2018-07-19 07:55:13', '2019-04-23 11:31:17', NULL),
@@ -5980,13 +6048,13 @@ ALTER TABLE `failed_jobs`
 -- 使用表AUTO_INCREMENT `goods`
 --
 ALTER TABLE `goods`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- 使用表AUTO_INCREMENT `goods_images`
 --
 ALTER TABLE `goods_images`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
 
 --
 -- 使用表AUTO_INCREMENT `jobs`
@@ -6046,7 +6114,7 @@ ALTER TABLE `permission_role`
 -- 使用表AUTO_INCREMENT `properties`
 --
 ALTER TABLE `properties`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- 使用表AUTO_INCREMENT `roles`
@@ -6064,7 +6132,7 @@ ALTER TABLE `role_user`
 -- 使用表AUTO_INCREMENT `sku`
 --
 ALTER TABLE `sku`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 
 --
 -- 使用表AUTO_INCREMENT `tree`
