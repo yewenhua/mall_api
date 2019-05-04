@@ -134,6 +134,7 @@ class GoodsController extends Controller
                     $goodObj->sale_price = $sale_price;
                     $goodObj->send_method = $send_method;
                     $goodObj->remain_num = $remain_num;
+                    $goodObj->is_sku = $isSku ? 1 : 0;
                     $goodObj->save();
                 }
                 else {
