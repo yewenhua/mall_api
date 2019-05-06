@@ -16,7 +16,7 @@ class Order extends Model
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function goods(){
-        return $this->hasMany('App\Http\Models\OrderGoods', 'goods_id');
+        return $this->hasMany('App\Http\Models\OrderGoods', 'order_id');
     }
 
     public function findByOrderid($orderid)

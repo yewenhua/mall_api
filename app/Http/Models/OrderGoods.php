@@ -14,6 +14,6 @@ class OrderGoods extends Model
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function order(){
-        return $this->belongsTo('App\Order', 'goods_id');
+        return $this->belongsTo('App\Order', 'order_id');
     }
 }
