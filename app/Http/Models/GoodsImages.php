@@ -16,4 +16,9 @@ class GoodsImages extends Model
     {
         return $this->where('goods_id', $goods_id)->where('type', $type)->where('url', $url)->whereNull('deleted_at')->first();
     }
+
+    public function findByGoodsImageNew($goods_id, $type, $arr)
+    {
+        return $this->where('goods_id', $goods_id)->where('type', $type)->whereIn('url', $arr)->whereNull('deleted_at')->get();
+    }
 }

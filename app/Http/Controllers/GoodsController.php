@@ -172,6 +172,7 @@ class GoodsController extends Controller
                 }
 
                 //保存sku
+                $now_skus = array();
                 foreach ($sku as $item){
                     $skuObj = new Sku();
                     $proObj = new Properties();
@@ -191,6 +192,7 @@ class GoodsController extends Controller
                         //已经存在，更新库存
                         $row->num = $item['num'];
                         $row->save();
+                        $now_skus[] = $row;
                     }
                     else{
                         //还没有，新增
@@ -202,6 +204,7 @@ class GoodsController extends Controller
 
                         $skuObj->goods_id = $goodObj->id;
                         $skuObj->save();
+                        $now_skus[] = $skuObj;
                     }
                 }
 
@@ -226,6 +229,32 @@ class GoodsController extends Controller
                         $imgObj->type = 'detail';
                         $imgObj->url = $item;
                         $goodObj->assignImages($imgObj);
+                    }
+                }
+
+                if ($id){
+                    //修改商品信息时，删除要删除的sku和图片
+                    $all_images = $goodObj->images;
+                    foreach ($all_images as $image) {
+                        if(!in_array($image->url, array_merge($mainArr, $detailArr))){
+                            $image->delete();
+                        }
+                    }
+
+                    $all_skus = $goodObj->skus;
+                    foreach ($all_skus as $sku) {
+                        $flag = false;
+                        foreach ($now_skus as $now){
+                            if($now->id == $sku->id){
+                                $flag = true;
+                                break;
+                            }
+                        }
+
+                        if(!$flag){
+                            //内循环不存在的删除
+                            $sku->delete();
+                        }
                     }
                 }
 

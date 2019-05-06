@@ -31,6 +31,13 @@ class Sku extends Model
 
     public function findByGoodsSkuRow($goods_id, $first_properties_id, $second_properties_id)
     {
-        return $this->where('goods_id', $goods_id)->where('first_properties_id', $first_properties_id)->where('second_properties_id', $second_properties_id)->whereNull('deleted_at')->first();
+        $handle = $this->where('goods_id', $goods_id)->where('first_properties_id', $first_properties_id);
+        if($second_properties_id){
+            $handle = $handle->where('second_properties_id', $second_properties_id);
+        }
+        else{
+            $handle = $handle->whereNull('second_properties_id');
+        }
+        return $handle->whereNull('deleted_at')->first();
     }
 }

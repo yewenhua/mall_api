@@ -16,11 +16,9 @@ class CreateOrdersTable extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->increments('id');
             $table->string('order_id');
-            $table->integer('device_id');
+            $table->integer('address_id');
             $table->decimal('money');
-            $table->integer('signal_id');
             $table->integer('cash_status');
-            $table->string('tpl_name');
             $table->string('pay_no');
             $table->string('pay_time');
             $table->string('openid');

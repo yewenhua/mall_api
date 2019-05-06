@@ -8,12 +8,15 @@ class Order extends Model
 {
     protected  $table = 'orders';
     protected $fillable = [
-        'orderid', 'openid', 'money', 'signal_id', 'tpl_name', 'status', 'pay_no', 'pay_time', 'device_id', 'cash_status', 'uid'
+        'orderid', 'address_id', 'money', 'status', 'pay_no', 'pay_time', 'cash_status', 'mini_id'
     ];
 
-    public function findByOpenid($openid)
-    {
-        return $this->where('openid', $openid)->whereNull('deleted_at')->get();
+    /**
+     * 一对多关系
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function goods(){
+        return $this->hasMany('App\Http\Models\OrderGoods', 'goods_id');
     }
 
     public function findByOrderid($orderid)

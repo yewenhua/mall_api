@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主机： 127.0.0.1
--- 生成日期： 2019-05-04 11:26:51
+-- 生成日期： 2019-05-06 04:43:41
 -- 服务器版本： 10.1.36-MariaDB
 -- PHP 版本： 5.6.38
 
@@ -21,6 +21,28 @@ SET time_zone = "+00:00";
 --
 -- 数据库： `wxmall`
 --
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `address`
+--
+
+CREATE TABLE `address` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `mini_id` int(11) NOT NULL,
+  `userName` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `postalCode` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `provinceName` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `cityName` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `countyName` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `detailInfo` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `nationalCode` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `telNumber` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `deleted_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -145,7 +167,7 @@ INSERT INTO `goods` (`id`, `category`, `name`, `sale_price`, `market_price`, `di
 (4, '1/75/94', '国酒茅台', '90.90', '80.80', '9.50', 450, 50, 1, 1, 0, NULL, NULL, 10, 2, 10, 2, 0, 2, NULL, 1, '2019-04-23 06:30:32', '2019-04-30 08:49:12', NULL),
 (9, '1/75/95', 'X8', '90.90', '80.80', '9.50', 100, 50, 1, 1, 0, NULL, NULL, 10, 1, 10, 2, 0, 2, NULL, 1, '2019-04-29 05:37:49', '2019-04-29 05:38:52', NULL),
 (10, '1/75/96', 'V77', '98.90', '80.80', '9.50', 38, 50, 1, 1, 0, NULL, NULL, 10, 2, 10, 2, 0, 2, NULL, 0, '2019-04-29 05:39:51', '2019-05-04 01:59:59', NULL),
-(11, '1/75/97', 'V77', '90.90', '80.80', '9.50', 100, 50, 1, 1, 0, NULL, NULL, 10, 1, 10, 2, 0, 2, NULL, 1, '2019-04-29 05:40:57', '2019-04-29 05:40:57', NULL),
+(11, '1/75/97', 'V77', '90.90', '80.80', '9.50', 76, 50, 1, 1, 0, NULL, NULL, 10, 1, 10, 2, 0, 2, NULL, 1, '2019-04-29 05:40:57', '2019-05-06 02:14:56', NULL),
 (12, '1/75/98', 'k8', '90.90', '80.80', '9.50', 100, 50, 1, 1, 0, NULL, NULL, 10, 2, 10, 2, 0, 2, NULL, 1, '2019-04-29 05:41:38', '2019-04-29 05:41:38', NULL),
 (13, '1/86/99', 'B6', '90.90', '80.80', '9.50', 100, 50, 1, 1, 0, NULL, NULL, 10, 2, 10, 2, 0, 2, NULL, 1, '2019-04-29 05:42:38', '2019-04-29 05:42:38', NULL),
 (14, '1/86/100', 'H6', '90.90', '80.80', '9.50', 100, 50, 1, 1, 0, NULL, NULL, 10, 1, 10, 2, 0, 2, NULL, 1, '2019-04-29 05:43:21', '2019-04-29 05:43:21', NULL),
@@ -195,8 +217,8 @@ INSERT INTO `goods_images` (`id`, `goods_id`, `type`, `url`, `created_at`, `upda
 (27, 10, 'main', '/uploads/goods/20190429/z2FMnHNvmnmHEYsFmnC1VBHz9KTW9wW3CCFKgIjt.jpeg', '2019-04-29 05:39:51', '2019-04-29 05:39:51', NULL),
 (28, 10, 'detail', '/uploads/goods/20190429/z8Goi9S7MfFfVzTnrBdwWiIJtZigObpqV1W0aLqa.jpeg', '2019-04-29 05:39:51', '2019-04-29 05:39:51', NULL),
 (29, 10, 'detail', '/uploads/goods/20190429/CE9AHzecziUbbDbXjdueSuNlKwjOm836mBtHabEB.jpeg', '2019-04-29 05:39:51', '2019-04-29 05:39:51', NULL),
-(30, 11, 'main', '/uploads/goods/20190429/uW3xkUGYl0rX3t6YMo44yhFHbLWOfeaqhMtd42ve.jpeg', '2019-04-29 05:40:57', '2019-04-29 05:40:57', NULL),
-(31, 11, 'detail', '/uploads/goods/20190429/tOhKcxoCsw99C8HOXejW8dehbFVmY9qqc8wQN4kb.jpeg', '2019-04-29 05:40:57', '2019-04-29 05:40:57', NULL),
+(30, 11, 'main', '/uploads/goods/20190429/uW3xkUGYl0rX3t6YMo44yhFHbLWOfeaqhMtd42ve.jpeg', '2019-04-29 05:40:57', '2019-05-06 02:09:54', '2019-05-06 02:09:54'),
+(31, 11, 'detail', '/uploads/goods/20190429/tOhKcxoCsw99C8HOXejW8dehbFVmY9qqc8wQN4kb.jpeg', '2019-04-29 05:40:57', '2019-05-06 02:09:54', '2019-05-06 02:09:54'),
 (32, 11, 'detail', '/uploads/goods/20190429/8q3vKiwEGZNnMEClzbMNGiXn4ymgOwFQRogfHX8x.jpeg', '2019-04-29 05:40:57', '2019-04-29 05:40:57', NULL),
 (33, 12, 'main', '/uploads/goods/20190429/UjDlttekrSH7MCV7jA6cKIWNkjBydyl0WKtBJfVi.jpeg', '2019-04-29 05:41:38', '2019-04-29 05:41:38', NULL),
 (34, 12, 'detail', '/uploads/goods/20190429/EBNiOC0b2ZyHM06b5AcjndkpuPxDT0dHd72KZcZw.jpeg', '2019-04-29 05:41:38', '2019-04-29 05:41:38', NULL),
@@ -222,7 +244,17 @@ INSERT INTO `goods_images` (`id`, `goods_id`, `type`, `url`, `created_at`, `upda
 (54, 17, 'detail', '/uploads/goods/20190429/sCfmAVUo4x1jTxFRd023ML3MGPmrsShGHfOZEKEM.jpeg', '2019-04-29 05:45:51', '2019-04-29 05:45:51', NULL),
 (55, 17, 'detail', '/uploads/goods/20190429/7IGNevTY49ZEgLkQwZ2ClSfzXmJS1shNpYLwCBUs.jpeg', '2019-04-29 05:45:51', '2019-04-29 05:45:51', NULL),
 (56, 17, 'detail', '/uploads/goods/20190429/a3Y0SpmNMFKq1fugp9oDf3pUPL0IDxywuW7geriP.jpeg', '2019-04-29 05:45:51', '2019-04-29 05:45:51', NULL),
-(57, 17, 'detail', '/uploads/goods/20190429/4SIcM15ihfnlZAXwFcaNuV7OauRawCgMbAuFtGek.jpeg', '2019-04-29 05:45:51', '2019-04-29 05:45:51', NULL);
+(57, 17, 'detail', '/uploads/goods/20190429/4SIcM15ihfnlZAXwFcaNuV7OauRawCgMbAuFtGek.jpeg', '2019-04-29 05:45:51', '2019-04-29 05:45:51', NULL),
+(58, 11, 'main', '/uploads/goods/20190505/kT26NE5Q9jYOhMzE7Kb98702mewqLv2dw6pHLMnz.jpeg', '2019-05-05 09:02:59', '2019-05-05 09:29:22', '2019-05-05 09:29:22'),
+(59, 11, 'detail', '/uploads/goods/20190505/j7HpWvTU1UkbekiKo81fhgR0qvAWFHhtOU1V41k0.jpeg', '2019-05-05 09:02:59', '2019-05-05 09:02:59', NULL),
+(60, 11, 'detail', '/uploads/goods/20190505/jmH1gQyE7fLndi59pWsoDRNBgIWKgD5ktYqtWiRk.jpeg', '2019-05-05 09:02:59', '2019-05-05 09:29:22', '2019-05-05 09:29:22'),
+(61, 11, 'main', '/uploads/goods/20190505/3j1aWpCfnTgzCrDC7g9NwBMpC1gKH9idx51ZHKie.jpeg', '2019-05-05 09:32:43', '2019-05-05 09:32:43', NULL),
+(62, 11, 'detail', '/uploads/goods/20190505/97i0E5bqwpS218c1OY91cX4d6dR8sEV3OpuqG6CD.jpeg', '2019-05-05 09:32:43', '2019-05-05 09:32:43', NULL),
+(63, 11, 'detail', '/uploads/goods/20190506/LfqeEy98PlJlvWltwiyrcSAOma19e9SNEEaukOmy.jpeg', '2019-05-06 01:56:32', '2019-05-06 01:56:32', NULL),
+(64, 11, 'detail', '/uploads/goods/20190506/Vo6pYISUSWChJKXlvsUvtBjkRsTKOQjsFj8rBjbi.jpeg', '2019-05-06 02:01:52', '2019-05-06 02:01:52', NULL),
+(65, 11, 'detail', '/uploads/goods/20190506/wQC0bSzgp7S0CBEl1k6nLDaVtBkGYSbIPd2OkAmE.jpeg', '2019-05-06 02:03:27', '2019-05-06 02:03:27', NULL),
+(66, 11, 'main', '/uploads/goods/20190506/6QXt9DM4N3DwRfwqMG5ZB413kqnhzAamQl3CHrM7.jpeg', '2019-05-06 02:09:54', '2019-05-06 02:09:54', NULL),
+(67, 11, 'detail', '/uploads/goods/20190506/BoC7ajMCPPvgXGptvfTXoxQQpnt6l1fFzTJQDJeB.jpeg', '2019-05-06 02:09:54', '2019-05-06 02:09:54', NULL);
 
 -- --------------------------------------------------------
 
@@ -333,7 +365,9 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (53, '2019_04_22_094842_create_properties_table', 19),
 (54, '2019_04_22_094934_create_sku_table', 19),
 (55, '2019_04_23_135601_create_goods_images_table', 20),
-(56, '2019_04_24_152606_create_logistics_table', 21);
+(56, '2019_04_24_152606_create_logistics_table', 21),
+(57, '2019_05_05_150650_create_address_table', 22),
+(58, '2019_05_05_150757_create_ordergoods_table', 22);
 
 -- --------------------------------------------------------
 
@@ -352,6 +386,7 @@ CREATE TABLE `miniuser` (
   `country` varchar(30) COLLATE utf8_unicode_ci DEFAULT NULL,
   `code` varchar(10) COLLATE utf8_unicode_ci DEFAULT NULL,
   `parent_key` varchar(10) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `router` text COLLATE utf8_unicode_ci,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=COMPACT;
@@ -5240,6 +5275,25 @@ INSERT INTO `orders` (`id`, `orderid`, `openid`, `signal_id`, `tpl_name`, `money
 -- --------------------------------------------------------
 
 --
+-- 表的结构 `order_goods`
+--
+
+CREATE TABLE `order_goods` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `goods_id` int(11) NOT NULL,
+  `num` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `goods_price` decimal(8,2) NOT NULL,
+  `goods_img` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `goods_name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `goods_sku` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `deleted_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
 -- 表的结构 `password_resets`
 --
 
@@ -5738,7 +5792,7 @@ INSERT INTO `sku` (`id`, `goods_id`, `first_properties_id`, `second_properties_i
 (35, 9, 15, NULL, 20, '2019-04-29 05:38:53', '2019-04-29 05:38:53', NULL),
 (36, 9, 16, NULL, 20, '2019-04-29 05:38:53', '2019-04-29 05:38:53', NULL),
 (37, 10, 17, NULL, 10, '2019-04-29 05:39:51', '2019-04-29 05:39:51', NULL),
-(38, 11, 15, NULL, 56, '2019-04-29 05:40:57', '2019-04-29 05:40:57', NULL),
+(38, 11, 15, NULL, 56, '2019-04-29 05:40:57', '2019-05-05 09:29:22', '2019-05-05 09:29:22'),
 (39, 12, 17, NULL, 40, '2019-04-29 05:41:38', '2019-04-29 05:41:38', NULL),
 (40, 13, 15, NULL, 0, '2019-04-29 05:42:38', '2019-04-29 05:42:38', NULL),
 (41, 14, 15, NULL, 30, '2019-04-29 05:43:21', '2019-04-29 05:43:21', NULL),
@@ -5746,7 +5800,22 @@ INSERT INTO `sku` (`id`, `goods_id`, `first_properties_id`, `second_properties_i
 (43, 16, 17, NULL, 89, '2019-04-29 05:44:42', '2019-04-29 05:44:42', NULL),
 (44, 17, 15, NULL, 0, '2019-04-29 05:45:51', '2019-04-29 05:45:51', NULL),
 (45, 10, 17, NULL, 10, '2019-05-04 01:58:14', '2019-05-04 01:58:14', NULL),
-(46, 10, 17, NULL, 10, '2019-05-04 01:59:59', '2019-05-04 01:59:59', NULL);
+(46, 10, 17, NULL, 10, '2019-05-04 01:59:59', '2019-05-04 01:59:59', NULL),
+(47, 11, 15, NULL, 56, '2019-05-05 09:02:59', '2019-05-05 09:29:22', '2019-05-05 09:29:22'),
+(48, 11, 15, NULL, 56, '2019-05-05 09:06:20', '2019-05-05 09:29:22', '2019-05-05 09:29:22'),
+(49, 11, 15, NULL, 56, '2019-05-05 09:08:38', '2019-05-05 09:29:22', '2019-05-05 09:29:22'),
+(50, 11, 15, NULL, 56, '2019-05-05 09:09:58', '2019-05-05 09:29:22', '2019-05-05 09:29:22'),
+(53, 11, 15, NULL, 56, '2019-05-05 09:13:52', '2019-05-05 09:29:22', '2019-05-05 09:29:22'),
+(54, 11, 15, NULL, 56, '2019-05-05 09:17:15', '2019-05-05 09:29:22', '2019-05-05 09:29:22'),
+(55, 11, 15, NULL, 56, '2019-05-05 09:17:54', '2019-05-05 09:29:22', '2019-05-05 09:29:22'),
+(58, 11, 15, NULL, 56, '2019-05-05 09:20:11', '2019-05-05 09:29:22', '2019-05-05 09:29:22'),
+(59, 11, 15, NULL, 56, '2019-05-05 09:22:34', '2019-05-05 09:29:22', '2019-05-05 09:29:22'),
+(61, 11, 15, NULL, 56, '2019-05-05 09:29:22', '2019-05-05 09:32:43', '2019-05-05 09:32:43'),
+(62, 11, 15, NULL, 56, '2019-05-05 09:32:43', '2019-05-05 09:32:43', NULL),
+(63, 11, 15, NULL, 56, '2019-05-06 01:56:32', '2019-05-06 02:09:54', '2019-05-06 02:09:54'),
+(64, 11, 15, NULL, 56, '2019-05-06 02:01:52', '2019-05-06 02:09:54', '2019-05-06 02:09:54'),
+(65, 11, 15, NULL, 56, '2019-05-06 02:03:27', '2019-05-06 02:09:54', '2019-05-06 02:09:54'),
+(66, 11, 16, NULL, 20, '2019-05-06 02:14:56', '2019-05-06 02:14:56', NULL);
 
 -- --------------------------------------------------------
 
@@ -5861,6 +5930,12 @@ INSERT INTO `users` (`id`, `name`, `email`, `desc`, `contact`, `phone`, `area`, 
 --
 
 --
+-- 表的索引 `address`
+--
+ALTER TABLE `address`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- 表的索引 `banner`
 --
 ALTER TABLE `banner`
@@ -5955,6 +6030,12 @@ ALTER TABLE `orders`
   ADD KEY `device_id` (`device_id`);
 
 --
+-- 表的索引 `order_goods`
+--
+ALTER TABLE `order_goods`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- 表的索引 `password_resets`
 --
 ALTER TABLE `password_resets`
@@ -6017,6 +6098,12 @@ ALTER TABLE `users`
 --
 
 --
+-- 使用表AUTO_INCREMENT `address`
+--
+ALTER TABLE `address`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
 -- 使用表AUTO_INCREMENT `banner`
 --
 ALTER TABLE `banner`
@@ -6056,7 +6143,7 @@ ALTER TABLE `goods`
 -- 使用表AUTO_INCREMENT `goods_images`
 --
 ALTER TABLE `goods_images`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=68;
 
 --
 -- 使用表AUTO_INCREMENT `jobs`
@@ -6080,7 +6167,7 @@ ALTER TABLE `maintenance`
 -- 使用表AUTO_INCREMENT `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
 
 --
 -- 使用表AUTO_INCREMENT `miniuser`
@@ -6099,6 +6186,12 @@ ALTER TABLE `news`
 --
 ALTER TABLE `orders`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4799;
+
+--
+-- 使用表AUTO_INCREMENT `order_goods`
+--
+ALTER TABLE `order_goods`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- 使用表AUTO_INCREMENT `permissions`
@@ -6134,7 +6227,7 @@ ALTER TABLE `role_user`
 -- 使用表AUTO_INCREMENT `sku`
 --
 ALTER TABLE `sku`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
 
 --
 -- 使用表AUTO_INCREMENT `tree`

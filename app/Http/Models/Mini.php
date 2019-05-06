@@ -7,7 +7,15 @@ use Illuminate\Database\Eloquent\Model;
 class Mini extends Model
 {
     protected  $table = 'miniuser';
-    protected $fillable = ['openid', 'nickname', 'avatarurl', 'gender', 'city', 'province', 'country', 'code', 'parent_key']; //批量赋值
+    protected $fillable = ['openid', 'nickname', 'avatarurl', 'gender', 'city', 'province', 'country', 'code', 'parent_key', 'router']; //批量赋值
+
+    /**
+     * 一对多关系
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function addresses(){
+        return $this->hasMany('App\Http\Models\Address', 'mini_id');
+    }
 
     public function lists()
     {
