@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主机： 127.0.0.1
--- 生成日期： 2019-05-07 11:03:55
+-- 生成日期： 2019-05-09 09:40:43
 -- 服务器版本： 10.1.36-MariaDB
 -- PHP 版本： 5.6.38
 
@@ -452,8 +452,6 @@ CREATE TABLE `orders` (
   `address_id` int(11) DEFAULT NULL,
   `mini_id` int(11) NOT NULL,
   `money` decimal(10,2) DEFAULT NULL,
-  `status` int(11) NOT NULL DEFAULT '0' COMMENT '0初始未支付 1已支付 2已发货 3已完成 98已取消 99已退款',
-  `cash_status` int(11) NOT NULL DEFAULT '0' COMMENT '0初始 1通过2不通过',
   `pay_no` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `pay_time` timestamp NULL DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
@@ -465,9 +463,9 @@ CREATE TABLE `orders` (
 -- 转存表中的数据 `orders`
 --
 
-INSERT INTO `orders` (`id`, `orderid`, `address_id`, `mini_id`, `money`, `status`, `cash_status`, `pay_no`, `pay_time`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, '20190507154115616910', 1, 1, '181.80', 0, 0, '', NULL, '2019-05-07 07:41:15', '2019-05-07 07:41:15', NULL),
-(2, '20190507163857529195', 1, 1, '98.90', 0, 0, '', NULL, '2019-05-07 08:38:57', '2019-05-07 08:38:57', NULL);
+INSERT INTO `orders` (`id`, `orderid`, `address_id`, `mini_id`, `money`, `pay_no`, `pay_time`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(1, '20190509153711270448', 1, 1, '90.90', '', NULL, '2019-05-09 07:37:11', '2019-05-09 07:37:11', NULL),
+(2, '20190509153741499637', 1, 1, '189.80', '', NULL, '2019-05-09 07:37:41', '2019-05-09 07:37:41', NULL);
 
 -- --------------------------------------------------------
 
@@ -484,6 +482,8 @@ CREATE TABLE `order_goods` (
   `goods_img` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `goods_name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `goods_sku` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `status` int(11) NOT NULL COMMENT '0初始未支付 1已支付 2已发货 3已完成 97已取消 98退款中 99已退款',
+  `cash_status` int(11) NOT NULL COMMENT '0初始 1通过2不通过',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL
@@ -493,10 +493,10 @@ CREATE TABLE `order_goods` (
 -- 转存表中的数据 `order_goods`
 --
 
-INSERT INTO `order_goods` (`id`, `order_id`, `goods_id`, `num`, `goods_price`, `goods_img`, `goods_name`, `goods_sku`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 1, 4, '1', '90.90', '/uploads/goods/20190429/meFpZSvcZ30KI1wDZzCo1lNBxG4mGtq5b1BGOgrg.jpeg', '国酒茅台', '1:3', '2019-05-07 07:41:16', '2019-05-07 07:41:16', NULL),
-(2, 1, 9, '1', '90.90', '/uploads/goods/20190429/A2a1fUk7hGW3Oza9Mgz79Ym7fOOpvUNkGNkjnHeZ.jpeg', 'X8', '16:', '2019-05-07 07:41:16', '2019-05-07 07:41:16', NULL),
-(3, 2, 10, '1', '98.90', '/uploads/goods/20190429/z2FMnHNvmnmHEYsFmnC1VBHz9KTW9wW3CCFKgIjt.jpeg', 'V77', ':', '2019-05-07 08:38:58', '2019-05-07 08:38:58', NULL);
+INSERT INTO `order_goods` (`id`, `order_id`, `goods_id`, `num`, `goods_price`, `goods_img`, `goods_name`, `goods_sku`, `status`, `cash_status`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(1, 1, 4, '1', '90.90', '/uploads/goods/20190429/meFpZSvcZ30KI1wDZzCo1lNBxG4mGtq5b1BGOgrg.jpeg', '国酒茅台', '1:3', 0, 0, '2019-05-09 07:37:11', '2019-05-09 07:37:11', NULL),
+(2, 2, 9, '1', '90.90', '/uploads/goods/20190429/A2a1fUk7hGW3Oza9Mgz79Ym7fOOpvUNkGNkjnHeZ.jpeg', 'X8', '16:', 0, 0, '2019-05-09 07:37:41', '2019-05-09 07:37:41', NULL),
+(3, 2, 10, '1', '98.90', '/uploads/goods/20190429/z2FMnHNvmnmHEYsFmnC1VBHz9KTW9wW3CCFKgIjt.jpeg', 'V77', ':', 0, 0, '2019-05-09 07:37:41', '2019-05-09 07:37:41', NULL);
 
 -- --------------------------------------------------------
 
@@ -517,8 +517,8 @@ CREATE TABLE `order_process` (
 --
 
 INSERT INTO `order_process` (`id`, `order_id`, `status`, `created_at`, `updated_at`) VALUES
-(1, 1, 'CREATE', '2019-05-07 07:41:16', '2019-05-07 15:41:16'),
-(2, 2, 'CREATE', '2019-05-07 08:38:58', '2019-05-07 16:38:58');
+(1, 1, 'CREATE', '2019-05-09 07:37:11', '2019-05-09 15:37:11'),
+(2, 2, 'CREATE', '2019-05-09 07:37:41', '2019-05-09 15:37:41');
 
 -- --------------------------------------------------------
 
@@ -571,7 +571,8 @@ INSERT INTO `permissions` (`id`, `name`, `desc`, `created_at`, `updated_at`, `de
 (38, '我的子商家', 'admin/myagents', '2018-09-03 07:49:26', '2019-04-19 01:58:03', NULL),
 (39, '商品列表', 'admin/goodslist', '2019-04-19 07:01:55', '2019-04-19 07:01:55', NULL),
 (40, '商品类目', 'admin/category', '2019-04-22 05:11:45', '2019-04-22 05:11:45', NULL),
-(41, '邮费设置', 'admin/logistics', '2019-04-24 02:28:21', '2019-04-24 02:28:21', NULL);
+(41, '邮费设置', 'admin/logistics', '2019-04-24 02:28:21', '2019-04-24 02:28:21', NULL),
+(42, '订单列表', 'admin/orderlist', '2019-05-08 09:20:50', '2019-05-08 09:20:50', NULL);
 
 -- --------------------------------------------------------
 
@@ -703,7 +704,8 @@ INSERT INTO `permission_role` (`id`, `permission_id`, `role_id`, `add_permission
 (129, 37, 4, 1, 1, 1, 1, '2019-04-19 06:45:05', '2019-04-19 06:45:05'),
 (130, 39, 1, 1, 1, 1, 1, '2019-04-19 07:03:22', '2019-04-19 07:03:22'),
 (131, 40, 1, 1, 1, 1, 1, '2019-04-22 05:11:53', '2019-04-22 05:11:53'),
-(132, 41, 1, 1, 1, 1, 1, '2019-04-24 02:28:32', '2019-04-24 02:28:32');
+(132, 41, 1, 1, 1, 1, 1, '2019-04-24 02:28:32', '2019-04-24 02:28:32'),
+(133, 42, 1, 1, 1, 1, 1, '2019-05-08 09:21:05', '2019-05-08 09:21:05');
 
 -- --------------------------------------------------------
 
@@ -1437,13 +1439,13 @@ ALTER TABLE `order_process`
 -- 使用表AUTO_INCREMENT `permissions`
 --
 ALTER TABLE `permissions`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
 
 --
 -- 使用表AUTO_INCREMENT `permission_role`
 --
 ALTER TABLE `permission_role`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=133;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=134;
 
 --
 -- 使用表AUTO_INCREMENT `properties`

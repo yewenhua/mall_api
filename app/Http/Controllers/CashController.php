@@ -137,11 +137,14 @@ class CashController extends Controller
             }
         }
 
-        $lists = DB::table('orders')
-            ->select(['cash_status', 'money'])
-            ->where('status', self::PAYED)
-            ->whereIn('uid', $pids)
-            ->orderBy('id', 'desc')
+        $lists = DB::table('order_goods')
+            ->join('orders', 'order_goods.order_id', '=', 'orders.id')
+            ->join('goods', 'order_goods.goods_id', '=', 'goods.id')
+            ->join('users', 'goods.merchant_id', '=', 'users.id')
+            ->where('order_goods.status', self::PAYED)
+            ->select('order_goods.goods_price')
+            ->whereIn('users.id', $pids)
+            ->orderBy('order_goods.id', 'desc')
             ->get();
 
         $rest_money = 0;

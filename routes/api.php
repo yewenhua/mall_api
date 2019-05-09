@@ -80,6 +80,9 @@ Route::group(['middleware' => ['jwt.auth', 'permission']], function () {
     Route::get('goods/page', 'GoodsController@index');
     Route::post('goods/deleteimg', 'GoodsController@deleteimg');
 
+    //order
+    Route::get('order/page', 'OrderController@index');
+
     //logistics
     Route::post('logistics/store', 'LogisticsController@store'); //创建用户保存
     Route::get('logistics/page', 'LogisticsController@index');

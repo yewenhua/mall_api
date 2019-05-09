@@ -12,6 +12,7 @@ use App\Role;
 use App\Http\Models\Discount;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
+use App\Http\Models\OrderGoods;
 
 class AdminController extends Controller
 {
@@ -39,7 +40,13 @@ class AdminController extends Controller
 
         $total = \App\User::select(['id'])->where('name', 'like', $like);
         $users = \App\User::where('name', 'like', $like);
-        $all_money = Order::whereNull('deleted_at')->where('status', self::PAYED);
+        $all_money = DB::table('order_goods')
+            ->join('orders', 'order_goods.order_id', '=', 'orders.id')
+            ->join('goods', 'order_goods.goods_id', '=', 'goods.id')
+            ->join('users', 'goods.merchant_id', '=', 'users.id')
+            ->where('order_goods.status', self::PAYED)
+            ->select('order_goods.goods_price');
+
 
         if($roleid != 'all') {
             $role = Role::find($roleid);
@@ -51,7 +58,7 @@ class AdminController extends Controller
 
             $total = $total->whereIn('id', $idarray);
             $users = $users->whereIn('id', $idarray);
-            $all_money = $all_money->whereIn('uid', $idarray);
+            $all_money = $all_money->whereIn('user.id', $idarray);
         }
 
         $total = $total->orderBy('id', 'desc')
@@ -84,12 +91,23 @@ class AdminController extends Controller
 
                 if($item->type == 'agent' || $item->type == 'straight' || $item->type == 'admin') {
                     if($item->type == 'admin'){
-                        $orders = Order::select(['cash_status', 'money'])->whereNull('deleted_at')->whereIn('uid', array(0, config('user.admin_id')))->where('status', self::PAYED)->get();
+                        $orders = DB::table('order_goods')
+                            ->join('orders', 'order_goods.order_id', '=', 'orders.id')
+                            ->join('goods', 'order_goods.goods_id', '=', 'goods.id')
+                            ->join('users', 'goods.merchant_id', '=', 'users.id')
+                            ->whereNull('orders.deleted_at')->whereIn('users.id', array(0, config('user.admin_id')))->where('order_goods.status', self::PAYED)
+                            ->select('orders.*', 'order_goods.*')->get();
                         $users[$key]->discount = 100;
                     }
                     else {
                         $ids = $this->pids($item->id);
-                        $orders = Order::select(['cash_status', 'money'])->whereNull('deleted_at')->whereIn('uid', $ids)->where('status', self::PAYED)->get();
+                        $orders = DB::table('order_goods')
+                            ->join('orders', 'order_goods.order_id', '=', 'orders.id')
+                            ->join('goods', 'order_goods.goods_id', '=', 'goods.id')
+                            ->join('users', 'goods.merchant_id', '=', 'users.id')
+                            ->whereNull('orders.deleted_at')->whereIn('users.id', $ids)->where('order_goods.status', self::PAYED)
+                            ->select('orders.*', 'order_goods.*')->get();
+
                         $discount = Discount::whereNull('deleted_at')->where('uid', $item->id)->first();
                         if(!$discount){
                             $discount = Discount::whereNull('deleted_at')->where('uid', 0)->first();
