@@ -57,4 +57,16 @@ class OrderController extends Controller
             return UtilService::format_data(self::AJAX_FAIL, '获取失败', '');
         }
     }
+
+    public function detail(Request $request){
+        $idstr = $request->input('idstr');
+        $id = UtilService::aesdecrypt($idstr);
+        $data = Order::find($id);
+        if($data){
+            return UtilService::format_data(self::AJAX_SUCCESS, '获取成功', $data);
+        }
+        else{
+            return UtilService::format_data(self::AJAX_FAIL, '获取失败', '');
+        }
+    }
 }
