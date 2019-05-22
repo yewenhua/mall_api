@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主机： 127.0.0.1
--- 生成日期： 2019-05-09 09:40:43
+-- 生成日期： 2019-05-22 10:47:50
 -- 服务器版本： 10.1.36-MariaDB
 -- PHP 版本： 5.6.38
 
@@ -464,8 +464,8 @@ CREATE TABLE `orders` (
 --
 
 INSERT INTO `orders` (`id`, `orderid`, `address_id`, `mini_id`, `money`, `pay_no`, `pay_time`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, '20190509153711270448', 1, 1, '90.90', '', NULL, '2019-05-09 07:37:11', '2019-05-09 07:37:11', NULL),
-(2, '20190509153741499637', 1, 1, '189.80', '', NULL, '2019-05-09 07:37:41', '2019-05-09 07:37:41', NULL);
+(1, '20190522155039379595', 1, 1, '90.90', '', NULL, '2019-05-22 07:50:39', '2019-05-22 07:50:39', NULL),
+(2, '20190522155140167758', 1, 1, '181.80', '', NULL, '2019-05-22 07:51:40', '2019-05-22 07:51:40', NULL);
 
 -- --------------------------------------------------------
 
@@ -494,9 +494,9 @@ CREATE TABLE `order_goods` (
 --
 
 INSERT INTO `order_goods` (`id`, `order_id`, `goods_id`, `num`, `goods_price`, `goods_img`, `goods_name`, `goods_sku`, `status`, `cash_status`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 1, 4, '1', '90.90', '/uploads/goods/20190429/meFpZSvcZ30KI1wDZzCo1lNBxG4mGtq5b1BGOgrg.jpeg', '国酒茅台', '1:3', 0, 0, '2019-05-09 07:37:11', '2019-05-09 07:37:11', NULL),
-(2, 2, 9, '1', '90.90', '/uploads/goods/20190429/A2a1fUk7hGW3Oza9Mgz79Ym7fOOpvUNkGNkjnHeZ.jpeg', 'X8', '16:', 0, 0, '2019-05-09 07:37:41', '2019-05-09 07:37:41', NULL),
-(3, 2, 10, '1', '98.90', '/uploads/goods/20190429/z2FMnHNvmnmHEYsFmnC1VBHz9KTW9wW3CCFKgIjt.jpeg', 'V77', ':', 0, 0, '2019-05-09 07:37:41', '2019-05-09 07:37:41', NULL);
+(1, 1, 4, '1', '90.90', '/uploads/goods/20190429/meFpZSvcZ30KI1wDZzCo1lNBxG4mGtq5b1BGOgrg.jpeg', '国酒茅台', '2:4', 0, 0, '2019-05-22 07:50:39', '2019-05-22 07:50:39', NULL),
+(2, 2, 9, '1', '90.90', '/uploads/goods/20190429/A2a1fUk7hGW3Oza9Mgz79Ym7fOOpvUNkGNkjnHeZ.jpeg', 'X8', '16:', 0, 0, '2019-05-22 07:51:40', '2019-05-22 07:51:40', NULL),
+(3, 2, 15, '1', '90.90', '/uploads/goods/20190429/z8VBCL43rHdGSEis0F97iKIy0TT0QW4likuUmKgD.jpeg', 'G5', '15:', 0, 0, '2019-05-22 07:51:40', '2019-05-22 07:51:40', NULL);
 
 -- --------------------------------------------------------
 
@@ -506,7 +506,7 @@ INSERT INTO `order_goods` (`id`, `order_id`, `goods_id`, `num`, `goods_price`, `
 
 CREATE TABLE `order_process` (
   `id` int(11) NOT NULL,
-  `order_id` int(11) NOT NULL,
+  `order_goods_id` int(11) NOT NULL,
   `status` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` datetime DEFAULT NULL
@@ -516,9 +516,10 @@ CREATE TABLE `order_process` (
 -- 转存表中的数据 `order_process`
 --
 
-INSERT INTO `order_process` (`id`, `order_id`, `status`, `created_at`, `updated_at`) VALUES
-(1, 1, 'CREATE', '2019-05-09 07:37:11', '2019-05-09 15:37:11'),
-(2, 2, 'CREATE', '2019-05-09 07:37:41', '2019-05-09 15:37:41');
+INSERT INTO `order_process` (`id`, `order_goods_id`, `status`, `created_at`, `updated_at`) VALUES
+(1, 1, 'CREATE', '2019-05-22 07:50:39', '2019-05-22 15:50:39'),
+(2, 2, 'CREATE', '2019-05-22 07:51:40', '2019-05-22 15:51:40'),
+(3, 3, 'CREATE', '2019-05-22 07:51:40', '2019-05-22 15:51:40');
 
 -- --------------------------------------------------------
 
@@ -1433,7 +1434,7 @@ ALTER TABLE `order_goods`
 -- 使用表AUTO_INCREMENT `order_process`
 --
 ALTER TABLE `order_process`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- 使用表AUTO_INCREMENT `permissions`
